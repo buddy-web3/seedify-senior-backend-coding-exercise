@@ -1,3 +1,23 @@
+# Dev notes
+
+## test POST:
+```
+curl -X POST http://localhost:3000/order      -H "Content-Type: application/json"      -d '{
+"id": "1",
+"productId": "p1",
+"quantity": "2",
+"userId": "u1"
+}'
+
+```
+
+## test GET
+``` 
+curl -X GET http://localhost:3000/order/1
+```
+
+### -------------------------------
+
 
 # Senior Backend Coding Exercise
 

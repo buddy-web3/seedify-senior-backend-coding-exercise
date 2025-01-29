@@ -1,4 +1,4 @@
-type OrderConstructorParameters = {
+export type OrderConstructorParameters = {
   id: string;
   productId: string;
   quantity: string;
@@ -6,28 +6,14 @@ type OrderConstructorParameters = {
 };
 
 export class Order {
-  #id: string;
-  #productId: string;
-  #quantity: string;
-  #userId: string;
+  private constructor(
+    public readonly id: string,
+    public readonly productId: string,
+    public readonly quantity: string,
+    public readonly userId: string
+  ) {}
 
-  constructor({ id, productId, quantity, userId }: OrderConstructorParameters) {
-    this.#id = id;
-    this.#productId = productId;
-    this.#quantity = quantity;
-    this.#userId = userId;
-  }
-
-  get id() {
-    return this.#id;
-  }
-  get productId() {
-    return this.#productId;
-  }
-  get quantity() {
-    return this.#quantity;
-  }
-  get userId() {
-    return this.#userId;
+  static create(orderData: OrderConstructorParameters): Order {
+    return new Order(orderData.id, orderData.productId, orderData.quantity, orderData.userId);
   }
 }
